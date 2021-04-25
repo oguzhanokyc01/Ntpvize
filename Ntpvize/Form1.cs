@@ -20,9 +20,9 @@ namespace Ntpvize
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+        { String dosya = "CnnTürk.txt";
             XmlTextReader rsscek = new XmlTextReader("https://www.cnnturk.com/feed/rss/spor/news");
-           
+            FileStream filestream = new FileStream(dosya, FileMode.Create, FileAccess.Write);           
         }
     }
 }
