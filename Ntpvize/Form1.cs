@@ -21,7 +21,8 @@ namespace Ntpvize
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            XmlTextReader rsscek = new XmlTextReader("https://www.cnnturk.com/feed/rss/spor/news");
+           
         }
     }
 }
