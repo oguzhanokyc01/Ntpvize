@@ -40,7 +40,17 @@ namespace Ntpvize
             yazdir.Close();
             filestream.Close();
 
+            FileStream fileStream1 = new FileStream(dosya, FileMode.OpenOrCreate, FileAccess.Read);
+            StreamReader reader = new StreamReader(fileStream1);
+            string rssveri = reader.ReadLine();
+            while (rssveri!=null)
+            {
+                dataGridView1.Rows.Add(rssveri);
+                rssveri = reader.ReadLine();
+            }
 
+            reader.Close();
+            fileStream1.Close();
 
         }
     }
