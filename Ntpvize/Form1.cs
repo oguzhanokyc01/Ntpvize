@@ -22,7 +22,26 @@ namespace Ntpvize
         private void Form1_Load(object sender, EventArgs e)
         { String dosya = "CnnTürk.txt";
             XmlTextReader rsscek = new XmlTextReader("https://www.cnnturk.com/feed/rss/spor/news");
-            FileStream filestream = new FileStream(dosya, FileMode.Create, FileAccess.Write);           
+            FileStream filestream = new FileStream(dosya, FileMode.Create, FileAccess.Write);
+            StreamWriter yazdir =new  StreamWriter(filestream);
+
+            while (rsscek.Read())
+            {
+                if (rsscek.Name=="title")
+                {
+                    string veriyaz = rsscek.ReadString();
+                    yazdir.WriteLine(veriyaz);
+
+                }
+
+            }
+
+            yazdir.Flush();
+            yazdir.Close();
+            filestream.Close();
+
+
+
         }
     }
 }
